@@ -1,2 +1,14 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Clipper App | <%= @title %></title>
+  </head>
+  <body>
+    <h1>Clipper</h1>
+    <p>
+       <%= link_to("Contact", :controller => "pages", :action => "contact") link_to("Help", :controller => "pages", :action => "Help") link_to("About", :controller => "pages", :action => "about")%>
+    </p>
+  </body>
+</html>
+
+~                  
