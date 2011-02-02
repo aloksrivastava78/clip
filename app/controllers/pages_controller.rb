@@ -5,7 +5,6 @@ class PagesController < ApplicationController
 
   def contact
     @title = 'Contact'
-<<<<<<< HEAD
   end
 
   def about
@@ -14,14 +13,4 @@ class PagesController < ApplicationController
   def help
     @title = 'Help'
   end
-=======
-  end
-  
-  def about
-    @title = 'About'
-  end
-  def help 
-    @title = 'Help'
-  end
->>>>>>> 5f0d5cf4f790d807ae8f868960c1d1bbb44e970e
 end
