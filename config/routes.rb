@@ -1,6 +1,6 @@
 Clip::Application.routes.draw do
 
-  get "users/new"
+   get "users/new"
 
    match '/signup', :to => 'users#new'
    match '/about', :to => 'pages#about'
