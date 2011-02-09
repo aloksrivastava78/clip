@@ -29,10 +29,10 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # group :development, :test do
 #   gem 'webrat'
 # end
+gem 'gravatar_image_tag', '1.0.0.pre2'
 group :development do
   gem 'rspec-rails', '2.3.0'
   gem 'annotate-models', '1.0.4'
-  gem 'gravatar_image_tag', '1.0.0.pre2'
 end
 
 group :test do
