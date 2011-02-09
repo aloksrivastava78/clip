@@ -1,5 +1,6 @@
 require 'spec_helper'
 
+
 describe UsersController do
 
   render_views
@@ -7,11 +8,14 @@ describe UsersController do
   describe "GET 'show'" do
 
     before(:each) do
-      @user = Factory(:user)
+#      @user = mock_model(User, :name => "alok", :email => "a@b.com", :password => "foobar", :password_confirmation => "foobar" )
+#      User.should_receive(:find).with(1).and_return(@user)
+       @user = Factory(:user)
+#      puts @user.id
     end
 
     it "should be successful" do
-      get :show, :id => @user
+      get :show, :id => @user 
       response.should be_success
     end
 
@@ -19,6 +23,22 @@ describe UsersController do
       get :show, :id => @user
       assigns(:user).should == @user
     end
+   
+    it "should have the right title" do
+      get :show, :id => @user
+      response.should have_selector("title", :content => @user.name)
+    end
+
+    it "should include the user's name" do
+      get :show, :id => @user
+      response.should have_selector("h1", :content => @user.name)
+    end
+
+    it "should have a profile image" do
+      get :show, :id => @user
+      response.should have_selector("h1>img", :class => "gravatar")
+    end
+
   end
 
   describe "GET 'new'" do
