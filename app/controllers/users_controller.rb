@@ -2,23 +2,22 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @title = 'Sign up'
-    @user = User.new
   end
 
   def create
     @user = User.new(params[:user])
     if @user.save
-      #handle success
+     # render :id => @user, :action => 'show'
+     # a short form
+     #render 'show'; # automatically picks up @user =>  DRY
+     flash[:success] = "Welcome to the Clipper App!"
+     redirect_to(user_path(@user)) #above are bot redirects and push 200 response). It hsould be redirects on success
     else
       @title = "Sign up"
       render 'new'
     end
   end
   
-  def create
-    @user.save?
-  end
-
   def show
     @user = User.find(params[:id])
     @title = @user.name
