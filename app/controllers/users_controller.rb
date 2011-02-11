@@ -14,6 +14,8 @@ class UsersController < ApplicationController
      redirect_to(user_path(@user)) #above are bot redirects and push 200 response). It hsould be redirects on success
     else
       @title = "Sign up"
+      @user.password = ""
+      @user.password_confirmation = ""
       render 'new'
     end
   end
