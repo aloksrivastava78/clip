@@ -12,6 +12,8 @@ class SessionsController < ApplicationController
       render 'new'
     else
       # Sign the user in and redirect to the user's show page.
+      sign_in user
+      redirect_to user
     end
   end
  
@@ -22,7 +24,7 @@ class SessionsController < ApplicationController
        redirect_to root_path
     else
        flash[:notice] = "Deletion is not successful"
-       redirect_to (user_path(@user))
+       redirect_to @user
     end
   end
 end
