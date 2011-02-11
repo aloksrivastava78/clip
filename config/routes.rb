@@ -1,13 +1,16 @@
 Clip::Application.routes.draw do
 
-   get "users/new"
+   resources   :users
+   resources   :sessions, :only => [:new, :create, :destroy]
 
    match '/signup', :to => 'users#new'
    match '/about', :to => 'pages#about'
    match '/contact', :to => 'pages#contact'
    match '/help', :to => 'pages#help'
    
-  resources   :users
+   match '/signin',  :to => 'sessions#new'
+   match '/signout', :to => 'sessions#destroy' 
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
