@@ -18,13 +18,7 @@ class SessionsController < ApplicationController
   end
  
   def destroy
-    @user = User.find(params[:user])
-    if @user.destroy
-       flash[:notice]= "Well thats embarrasing!! We are missing you"
-       redirect_to root_path
-    else
-       flash[:notice] = "Deletion is not successful"
-       redirect_to @user
-    end
+    sign_out
+    redirect_to root_path
   end
 end
