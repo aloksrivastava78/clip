@@ -1,4 +1,5 @@
 module SessionsHelper
+<<<<<<< .merge_file_MvADQl
 
   def sign_in(user)
     cookies.permanent.signed[:remember_token] = [user.id, user.salt]
@@ -37,4 +38,13 @@ module SessionsHelper
     end
  
 
+=======
+  def sign_in(user)
+    cookies.signed.permanent[:remeber_user] = [user.id, user.salt]
+    self.current_user = user
+  end
+  def current_usee = user
+    @current_user = user
+  end
+>>>>>>> .merge_file_UbIC4k
 end

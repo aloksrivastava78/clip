@@ -50,11 +50,18 @@ RSpec.configure do |config|
     # Emulate initializer set_clear_dependencies_hook in 
     # railties/lib/rails/application/bootstrap.rb
   ActiveSupport::Dependencies.clear
+<<<<<<< .merge_file_ovbR0o
   #Alok Defined it for testing the sign out spec/controllers/session_controllers_spec.rb
   def test_sign_in(user)
     controller.sign_in(user)
   end
 
+=======
+  
+  def test_sign_in(user)
+    controller.sign_in(user)
+  end
+>>>>>>> .merge_file_Sp3O7o
 
 end
 end
