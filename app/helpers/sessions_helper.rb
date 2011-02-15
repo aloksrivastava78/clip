@@ -1,8 +1,11 @@
 module SessionsHelper
-<<<<<<< .merge_file_MvADQl
 
   def sign_in(user)
-    cookies.permanent.signed[:remember_token] = [user.id, user.salt]
+    if session[:staysignedin]
+      cookies.permanent.signed[:remember_token] = [user.id, user.salt]
+    else
+      session[:user_id] = user.id
+    end
     self.current_user = user
   end
   
@@ -11,18 +14,21 @@ module SessionsHelper
   end
   
   def current_user
-    @current_user = user_from_remember_token
-#    user = User.new
- #   user = @current_user
-  #  puts "It testing content #{user.email}"
+      @current_user ||= user_from_remember_token
   end
+ 
 
   def signed_in?
     !current_user.nil?
   end
   
   def sign_out
-    cookies.delete(:remember_token)
+     
+    if !cookies[:remember_token].nil?
+      cookies.delete(:remember_token)
+    end
+    session[:user_id] = nil
+    session[:staysignedin] = nil
     self.current_user = nil
   end
   
@@ -30,21 +36,11 @@ module SessionsHelper
   private
 
     def user_from_remember_token
-      User.authenticate_with_salt(*remember_token)
-    end
+      !cookies[:remember_token].nil? ?  User.authenticate_with_salt(*remember_token):(!session[:user_id].nil? ? User.find_by_id(session[:user_id]) : nil )
+   end
 
     def remember_token
       cookies.signed[:remember_token] || [nil, nil]
     end
- 
 
-=======
-  def sign_in(user)
-    cookies.signed.permanent[:remeber_user] = [user.id, user.salt]
-    self.current_user = user
-  end
-  def current_usee = user
-    @current_user = user
-  end
->>>>>>> .merge_file_UbIC4k
 end
