@@ -16,7 +16,11 @@
          <%= yield %>
       </section>
       <%= render 'layouts/footer' %>
-      <%= debug(cookies.signed[:remember_token]) if Rails.env.development? %>
+      <%= debug(session[:staysignedin])  if Rails.env.development? %>
+      <%= debug(session[:user_id]) if Rails.env.development? %>
+      <%= debug(session) if Rails.env.development? %>
+      <%= debug(cookies) if Rails.env.development? %>
+      <%= debug(cookies[:remember_token]) if Rails.env.development? %>
       <%= debug(current_user) if Rails.env.development? %>
     </div>
   </body>
