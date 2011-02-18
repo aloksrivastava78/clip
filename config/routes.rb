@@ -1,7 +1,7 @@
 Clip::Application.routes.draw do
 
-   resources   :users
-   resources   :sessions, :only => [:new, :create, :destroy]
+   devise_for :users, :controllers => {:sessions => 'users/sessions', :passwords => 'users/passwords', :registrations => 'users/registrations' }
+   resources :users
 
    match '/signup', :to => 'users#new'
    match '/about', :to => 'pages#about'
