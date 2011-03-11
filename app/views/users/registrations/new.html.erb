@@ -15,7 +15,10 @@
   <p><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></p>
 
+  <div id="captcha">
+    <%= render 'shared/recaptcha' %>
+  </div>  
+
   <p><%= f.submit "Sign up" %></p>
 <% end %>
-
-<%= render :partial => "devise/shared/links" %>
+<%= render :partial => "users/shared/links" %>
