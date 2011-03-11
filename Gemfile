@@ -31,6 +31,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # end
 gem 'gravatar_image_tag', '1.0.0.pre2'
 gem 'devise', '1.1.7'
+gem 'recaptcha', '0.3.1'
 group :development do
   gem 'rspec-rails', '2.3.0'
   gem 'annotate-models', '1.0.4'
